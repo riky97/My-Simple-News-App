@@ -3,14 +3,23 @@ import {View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
 
 const CardNews = ({data}) => {
   const renderToWebsite = () => {
-    console.log('data.item.url', data.item.urlToImage);
+    console.log('data.item.url', data.item.url);
+  };
+
+  const publish = publishDate => {
+    const split = publishDate.split('T');
+    const date = split[0];
+    return date;
   };
   return (
     <TouchableOpacity onPress={renderToWebsite} style={styles.cardContainer}>
       <View style={styles.cardDescription}>
         <Text style={styles.cardTitle}>{data.item.title}</Text>
         <Text style={styles.cardContent}>
-          {data.item.description ? data.item.description : 'No description'}
+          {data.item.author ? data.item.author : 'No author'}
+        </Text>
+        <Text style={styles.cardPubblication}>
+          {publish(data.item.publishedAt)}
         </Text>
       </View>
       <View style={styles.cardContainerImage}>
@@ -18,11 +27,9 @@ const CardNews = ({data}) => {
           source={
             data.item.urlToImage
               ? {uri: data.item.urlToImage}
-              : {
-                  uri: 'https://www.stillisolutions.com/wp-content/uploads/2017/09/no-image-box.png',
-                }
+              : require('../assets/no-image-box.png')
           }
-          style={styles.cardImage}
+          style={data.item.urlToImage ? styles.cardImage : styles.cardNoImage}
         />
       </View>
     </TouchableOpacity>
@@ -31,30 +38,104 @@ const CardNews = ({data}) => {
 
 const styles = StyleSheet.create({
   cardContainer: {
-    paddingBottom: 10,
-    borderBottomColor: '#ddd',
-    borderBottomWidth: 2,
-
-    marginVertical: 5,
+    padding: 5,
+    marginVertical: 8,
+    marginHorizontal: 4,
     backgroundColor: '#fff',
     flexDirection: 'row',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
+    elevation: 10,
   },
-  cardContainerImage: {flex: 0.7},
+  cardContainerImage: {flex: 0.6},
   cardImage: {
     flex: 1,
     borderRadius: 10,
+  },
+  cardNoImage: {
+    width: '100%',
   },
   cardDescription: {
     flex: 1,
     marginHorizontal: 10,
   },
   cardTitle: {
-    textTransform: 'uppercase',
-    fontWeight: 'bold',
-    marginVertical: 5,
+    fontWeight: '900',
+    color: '#000',
+    paddingTop: 5,
+    fontSize: 16.5,
+    fontFamily: 'Arial, Helvetica, sans-serif',
   },
   cardContent: {
     fontSize: 14,
+    paddingTop: 5,
+    color: '#E3CA9A',
+  },
+  cardPubblication: {
+    paddingTop: 5,
+    color: '#0005',
   },
 });
 export default CardNews;
+
+/*
+
+<Text style={styles.cardContent}>
+          {data.item.description ? data.item.description : 'No description'}
+        </Text>
+        
+        
+        
+        
+         {data.index % 2 == 0 ? (
+        <>
+          <View style={styles.cardDescription}>
+            <Text style={styles.cardTitle}>{data.item.title}</Text>
+
+            <Text style={styles.cardPubblication}>
+              {publish(data.item.publishedAt)}
+            </Text>
+          </View>
+          <View style={styles.cardContainerImage}>
+            <Image
+              source={
+                data.item.urlToImage
+                  ? {uri: data.item.urlToImage}
+                  : {
+                      uri: 'https://www.stillisolutions.com/wp-content/uploads/2017/09/no-image-box.png',
+                    }
+              }
+              style={styles.cardImage}
+            />
+          </View>
+        </>
+      ) : (
+        <>
+          <View style={styles.cardContainerImage}>
+            <Image
+              source={
+                data.item.urlToImage
+                  ? {uri: data.item.urlToImage}
+                  : {
+                      uri: 'https://www.stillisolutions.com/wp-content/uploads/2017/09/no-image-box.png',
+                    }
+              }
+              style={styles.cardImage}
+            />
+          </View>
+          <View style={styles.cardDescription}>
+            <Text style={styles.cardTitle}>{data.item.title}</Text>
+
+            <Text style={styles.cardPubblication}>
+              {publish(data.item.publishedAt)}
+            </Text>
+          </View>
+        </>
+      )}
+        */
