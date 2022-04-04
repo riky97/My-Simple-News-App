@@ -10,15 +10,18 @@ import {
 } from 'react-native';
 
 const CardNews = ({data}) => {
-  const openUrl = async url => {
-    console.log('data.item.url', url);
-    const supported = await Linking.canOpenURL(url);
-    console.log('supported', supported);
-    if (supported) {
-      await Linking.openURL(url);
-    } else {
-      Alert.alert(`Don't know how to open this URL: ${url}`);
-    }
+  const openUrl = url => {
+    const handlePress = async url => {
+      console.log('data.item.url', url);
+      const supported = await Linking.canOpenURL(url);
+      console.log('supported', supported);
+      if (!supported) {
+        await Linking.openURL(url);
+      } else {
+        Alert.alert(`Don't know how to open this URL: ${url}`);
+      }
+    };
+    handlePress(url);
   };
 
   const publish = publishDate => {
