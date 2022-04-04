@@ -14,6 +14,7 @@ export const getTodayPopularNews = selectedId => {
       //   method: 'GET',
       //   url: 'https://newsapi.org/v2/everything?from=2022-03-28&to=2022-03-28&sortBy=popularity&apiKey=a989ea706a3f489ca7d8da67224428cf',
       // };
+      console.log('selectedId', selectedId);
       const response = await axios.get(
         'https://newsapi.org/v2/top-headlines?country=us&category=' +
           selectedId +

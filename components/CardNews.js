@@ -1,9 +1,24 @@
 import React from 'react';
-import {View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Text,
+  Linking,
+  Alert,
+} from 'react-native';
 
 const CardNews = ({data}) => {
-  const renderToWebsite = () => {
-    console.log('data.item.url', data.item.url);
+  const openUrl = async url => {
+    console.log('data.item.url', url);
+    const supported = await Linking.canOpenURL(url);
+    console.log('supported', supported);
+    if (supported) {
+      await Linking.openURL(url);
+    } else {
+      Alert.alert(`Don't know how to open this URL: ${url}`);
+    }
   };
 
   const publish = publishDate => {
@@ -12,7 +27,9 @@ const CardNews = ({data}) => {
     return date;
   };
   return (
-    <TouchableOpacity onPress={renderToWebsite} style={styles.cardContainer}>
+    <TouchableOpacity
+      onPress={() => openUrl(data.item.url)}
+      style={styles.cardContainer}>
       <View style={styles.cardDescription}>
         <Text style={styles.cardTitle}>{data.item.title}</Text>
         <Text style={styles.cardContent}>

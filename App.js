@@ -44,9 +44,9 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   useEffect(() => {
-    response();
+    response(selectedId);
   }, []);
-  const response = async () => {
+  const response = async selectedId => {
     const data = await getTodayPopularNews(selectedId);
     console.log(data);
     if (!data.error) {
@@ -54,15 +54,28 @@ const App: () => Node = () => {
     }
   };
 
-  const onRefresh = React.useCallback(() => {
+  const onRefresh = React.useCallback(async selectedId => {
     setRefreshing(true);
-    wait(2000).then(() => setRefreshing(false));
+    try {
+      response(selectedId);
+      wait(1000).then(() => {
+        setRefreshing(false);
+      });
+    } catch (error) {
+      wait(1000).then(() => {
+        setRefreshing(false);
+      });
+    }
+
+    wait(1000).then(() => {
+      setRefreshing(false);
+    });
   }, []);
 
   //selectedId
   const changeSection = ele => {
-    response();
     setSelectedId(ele);
+    response(ele);
   };
 
   const title = 'Popular ' + selectedId + ' news';
@@ -70,16 +83,18 @@ const App: () => Node = () => {
   return (
     <>
       <StatusBar style={{backgroundColor: backgroundStyle.backgroundColor}} />
+      <Header onPress={changeSection} selectedId={selectedId} />
       <View style={styles.container}>
-        <Header onPress={changeSection} selectedId={selectedId} />
         {popularNews.length > 0 && (
           <FlatList
             style={styles.list}
-            onEndReached={response}
             ListHeaderComponent={<Text style={styles.header}>{title}</Text>}
             data={popularNews}
             refreshControl={
-              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={() => onRefresh(selectedId)}
+              />
             }
             keyExtractor={(item, index) => index + item}
             renderItem={(item, index) => {

@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {FlatList, Text, TouchableOpacity, StyleSheet, View} from 'react-native';
+
+import {getCategory} from '../api/getCategory';
 
 const category = [
   {
