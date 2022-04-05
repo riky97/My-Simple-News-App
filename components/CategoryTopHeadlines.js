@@ -1,38 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {FlatList, Text, TouchableOpacity, StyleSheet, View} from 'react-native';
 
-import {getCategory} from '../api/getCategory';
+import getCategory from '../assets/category.json';
 
-const category = [
-  {
-    id: 0,
-    category: 'general',
-  },
-  {
-    id: 1,
-    category: 'business',
-  },
-  {
-    id: 2,
-    category: 'entertainment',
-  },
-  {
-    id: 3,
-    category: 'health',
-  },
-  {
-    id: 4,
-    category: 'science',
-  },
-  {
-    id: 5,
-    category: 'sports',
-  },
-  {
-    id: 6,
-    category: 'technology',
-  },
-];
 const Button = ({item, onPress, selectedId}) => {
   return (
     <TouchableOpacity
@@ -42,7 +12,14 @@ const Button = ({item, onPress, selectedId}) => {
           ? [styles.buttonCategory, styles.active]
           : [styles.buttonCategory]
       }>
-      <Text style={styles.textCategory}>{item.item.category}</Text>
+      <Text
+        style={
+          item.item.category === selectedId
+            ? styles.textCategoryActive
+            : styles.textCategory
+        }>
+        {item.item.category}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -52,7 +29,7 @@ const CategoryTopHeadlines = ({onPress, selectedId}) => {
     <View style={styles.categoryList}>
       <FlatList
         horizontal
-        data={category}
+        data={getCategory.categories}
         keyExtractor={(item, index) => item.id}
         renderItem={(item, index) => {
           return (
@@ -78,6 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   active: {
+    borderBottomColor: 'tomato',
     borderBottomWidth: 4,
   },
   textCategory: {
@@ -85,6 +63,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textTransform: 'capitalize',
     fontWeight: '400',
+  },
+  textCategoryActive: {
+    color: 'tomato',
+    fontSize: 16,
+    textTransform: 'capitalize',
+    fontWeight: '600',
   },
 });
 

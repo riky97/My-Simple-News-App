@@ -3,13 +3,10 @@ import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   Text,
-  useColorScheme,
   View,
   StatusBar,
-  ScrollView,
   FlatList,
   RefreshControl,
-  SafeAreaView,
   ActivityIndicator,
 } from 'react-native';
 
