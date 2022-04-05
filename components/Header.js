@@ -19,7 +19,7 @@ const Header = ({onPress, selectedId}) => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: '#fff',
-    height: 150,
+    height: 120,
     shadowColor: '#000',
     shadowOffset: {width: 1, height: 1},
     shadowOpacity: 0.4,
