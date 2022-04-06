@@ -89,10 +89,3 @@ const App: () => Node = () => {
 };
 
 export default App;
-//#E5E5EA
-/**<NavigationContainer initialState={HomeScreen}>
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={HomeScreen} />
-        </Tab.Navigator>
-      </NavigationContainer> */
-//<StatusBar style={{backgroundColor: backgroundStyle.backgroundColor}} />

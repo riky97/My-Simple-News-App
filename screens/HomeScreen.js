@@ -102,9 +102,10 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 23,
     color: '#000',
-    fontWeight: '600',
+
     marginVertical: 10,
     marginLeft: 6,
+    fontFamily: 'Aeroport-Bold',
   },
 });
 export default HomeScreen;

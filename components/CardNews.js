@@ -88,20 +88,21 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   cardTitle: {
-    fontWeight: '900',
     color: '#000',
     paddingTop: 5,
     fontSize: 16.5,
-    fontFamily: 'Arial, Helvetica, sans-serif',
+    fontFamily: 'Aeroport-Bold',
   },
   cardContent: {
     fontSize: 14,
     paddingTop: 5,
     color: '#E3CA9A',
+    fontFamily: 'Aeroport',
   },
   cardPubblication: {
     paddingTop: 5,
     color: '#0005',
+    fontFamily: 'Aeroport',
   },
 });
 export default CardNews;

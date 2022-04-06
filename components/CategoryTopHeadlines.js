@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   buttonCategory: {
-    padding: 15,
+    padding: 12,
     color: '#000',
     justifyContent: 'center',
   },
@@ -62,13 +62,13 @@ const styles = StyleSheet.create({
     color: '#000',
     fontSize: 16,
     textTransform: 'capitalize',
-    fontWeight: '400',
+    fontFamily: 'Aeroport-Medium',
   },
   textCategoryActive: {
     color: 'tomato',
     fontSize: 16,
     textTransform: 'capitalize',
-    fontWeight: '600',
+    fontFamily: 'Aeroport-Bold',
   },
 });
 

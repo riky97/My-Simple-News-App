@@ -28,6 +28,9 @@
 		203410E7058E4F698CDA7EAA /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7A84C73B9CE4ABC929D99DC /* Octicons.ttf */; };
 		16B5088DE1EF492BAF7E16B5 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85F3F160FA5549149D159EE5 /* SimpleLineIcons.ttf */; };
 		DE66BB61486E4013B6BA63D5 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F8CAC721C064F9482A4F2AE /* Zocial.ttf */; };
+		2EA156F655C64645B65E3CFE /* Aeroport-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504ACEB8958C458F92702D5B /* Aeroport-Bold.ttf */; };
+		3167736600EB4AFAA93C9785 /* Aeroport-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8FC6A5C451447E4BDB1D5E3 /* Aeroport-Medium.ttf */; };
+		9C87C750B5E64CD0A9866173 /* Aeroport.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85C2643E800840B5A01D7DC9 /* Aeroport.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		B7A84C73B9CE4ABC929D99DC /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		85F3F160FA5549149D159EE5 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		0F8CAC721C064F9482A4F2AE /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		504ACEB8958C458F92702D5B /* Aeroport-Bold.ttf */ = {isa = PBXFileReference; name = "Aeroport-Bold.ttf"; path = "../assets/fonts/Aeroport-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A8FC6A5C451447E4BDB1D5E3 /* Aeroport-Medium.ttf */ = {isa = PBXFileReference; name = "Aeroport-Medium.ttf"; path = "../assets/fonts/Aeroport-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		85C2643E800840B5A01D7DC9 /* Aeroport.ttf */ = {isa = PBXFileReference; name = "Aeroport.ttf"; path = "../assets/fonts/Aeroport.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +182,9 @@
 				B7A84C73B9CE4ABC929D99DC /* Octicons.ttf */,
 				85F3F160FA5549149D159EE5 /* SimpleLineIcons.ttf */,
 				0F8CAC721C064F9482A4F2AE /* Zocial.ttf */,
+				504ACEB8958C458F92702D5B /* Aeroport-Bold.ttf */,
+				A8FC6A5C451447E4BDB1D5E3 /* Aeroport-Medium.ttf */,
+				85C2643E800840B5A01D7DC9 /* Aeroport.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -287,6 +296,9 @@
 				203410E7058E4F698CDA7EAA /* Octicons.ttf in Resources */,
 				16B5088DE1EF492BAF7E16B5 /* SimpleLineIcons.ttf in Resources */,
 				DE66BB61486E4013B6BA63D5 /* Zocial.ttf in Resources */,
+				2EA156F655C64645B65E3CFE /* Aeroport-Bold.ttf in Resources */,
+				3167736600EB4AFAA93C9785 /* Aeroport-Medium.ttf in Resources */,
+				9C87C750B5E64CD0A9866173 /* Aeroport.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

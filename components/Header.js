@@ -27,11 +27,12 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   logo: {
-    fontSize: 24,
+    fontSize: 25,
     textTransform: 'uppercase',
-    fontWeight: '800',
+
     color: '#000',
     paddingLeft: 15,
+    fontFamily: 'Aeroport-Bold',
   },
 });
 
