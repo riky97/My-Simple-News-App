@@ -4,9 +4,9 @@ import CategoryTopHeadlines from './CategoryTopHeadlines';
 
 const Header = ({onPress, selectedId}) => {
   return (
-    <View style={{overflow: 'hidden', paddingBottom: 5}}>
+    <View style={{overflow: 'hidden', paddingBottom: 5, flex: 0.3}}>
       <View style={styles.header}>
-        <View style={{flex: 1, justifyContent: 'flex-end'}}>
+        <View style={{flex: 0.6, justifyContent: 'flex-end'}}>
           <Text style={styles.logo}>NEWS APP</Text>
         </View>
         <View style={{flex: 1, justifyContent: 'flex-end'}}>
@@ -19,7 +19,8 @@ const Header = ({onPress, selectedId}) => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: '#fff',
-    height: 120,
+    flex: 1,
+    flexDirection: 'column',
     shadowColor: '#000',
     shadowOffset: {width: 1, height: 1},
     shadowOpacity: 0.4,
