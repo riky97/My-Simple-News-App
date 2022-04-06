@@ -53,6 +53,8 @@ const styles = StyleSheet.create({
     padding: 12,
     color: '#000',
     justifyContent: 'center',
+    borderBottomColor: '#0005',
+    borderBottomWidth: 4,
   },
   active: {
     borderBottomColor: 'tomato',

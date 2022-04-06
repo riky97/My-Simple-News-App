@@ -63,7 +63,7 @@ const SearchScreen = () => {
         containerStyle={{
           backgroundColor: '#fff',
           borderTopWidth: 0,
-          borderBottomWidth: 0,
+          borderBottomWidth: 2,
           shadowColor: '#000',
           shadowOffset: {width: 1, height: 1},
           shadowOpacity: 0.4,
@@ -90,6 +90,9 @@ const SearchScreen = () => {
         <>
           <FlatList
             style={styles.list}
+            ListHeaderComponent={
+              <Text style={styles.searchText}>Search: {search}</Text>
+            }
             ListFooterComponent={<Text></Text>}
             data={searchNewsByName}
             refreshControl={
@@ -125,6 +128,11 @@ const styles = StyleSheet.create({
   },
   list: {
     padding: 10,
+  },
+  searchText: {
+    fontFamily: 'Aeroport-Medium',
+    fontSize: 22,
+    marginVertical: 10,
   },
 });
 

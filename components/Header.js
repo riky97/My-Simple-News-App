@@ -4,12 +4,12 @@ import CategoryTopHeadlines from './CategoryTopHeadlines';
 
 const Header = ({onPress, selectedId}) => {
   return (
-    <View style={{overflow: 'hidden', paddingBottom: 5, flex: 0.3}}>
+    <View style={{overflow: 'hidden', paddingBottom: 5, flex: 0.25}}>
       <View style={styles.header}>
         <View style={{flex: 0.6, justifyContent: 'flex-end'}}>
           <Text style={styles.logo}>NEWS APP</Text>
         </View>
-        <View style={{flex: 1, justifyContent: 'flex-end'}}>
+        <View style={{flex: 1.2, justifyContent: 'flex-end'}}>
           <CategoryTopHeadlines onPress={onPress} selectedId={selectedId} />
         </View>
       </View>
@@ -25,12 +25,11 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 1, height: 1},
     shadowOpacity: 0.4,
     shadowRadius: 3,
-    elevation: 10,
+    elevation: 3,
   },
   logo: {
     fontSize: 25,
     textTransform: 'uppercase',
-
     color: '#000',
     paddingLeft: 15,
     fontFamily: 'Aeroport-Bold',
