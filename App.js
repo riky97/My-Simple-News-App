@@ -69,7 +69,7 @@ const App: () => Node = () => {
               if (route.name === 'Search') {
                 iconName = 'search';
               }
-              // You can return any component that you like here!
+
               return <Icon name={iconName} color={color} />;
             },
             tabBarActiveTintColor: 'tomato',
@@ -78,6 +78,11 @@ const App: () => Node = () => {
               borderTopStartRadius: 15,
               borderTopEndRadius: 15,
               backgroundColor: '#fff',
+              height: 60,
+            },
+            tabBarLabelStyle: {
+              fontSize: 15,
+              fontFamily: 'Aeroport',
             },
           })}>
           <Tab.Screen name="Home" component={HomeScreen} />
