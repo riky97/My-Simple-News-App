@@ -9,10 +9,10 @@ const Header = ({onPress, selectedId, route, updateSearch}) => {
   return (
     <View style={{overflow: 'hidden', paddingBottom: 5, flex: 0.25}}>
       <View style={styles.header}>
-        <View style={{flex: 0.6, justifyContent: 'flex-end'}}>
+        <View style={{flex: 0.4, justifyContent: 'center'}}>
           <Text style={styles.logo}>NEWS APP</Text>
         </View>
-        <View style={{flex: 1.2, justifyContent: 'flex-end'}}>
+        <View style={{flex: 1, justifyContent: 'flex-end'}}>
           {route === 'Home' && (
             <CategoryTopHeadlines onPress={onPress} selectedId={selectedId} />
           )}

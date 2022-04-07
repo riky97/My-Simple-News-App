@@ -20,6 +20,7 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+.env
 
 # Android/IntelliJ
 #
@@ -35,7 +36,7 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
-.env
+
 
 # BUCK
 buck-out/
@@ -59,3 +60,4 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
