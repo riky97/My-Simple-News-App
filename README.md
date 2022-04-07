@@ -5,9 +5,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/riky97/My-Simple-News-App">
-    <img src="./public/images/readme/logo_screenshot.PNG" alt="Logo" width="120" height="180">
-  </a>
 
 <h3 align="center">News App</h3>
 
@@ -50,17 +47,13 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://my-anime-list.netlify.app)
-[![Product Name Screen Shot][product-screenshot2]](https://my-anime-list.netlify.app)
-[![Product Name Screen Shot][product-screenshot3]](https://my-anime-list.netlify.app)
-
 ### Built With
 
 - [HTML](https://www.w3schools.com/html/html_intro.asp)
 - [CSS](https://www.w3schools.com/css/)
 - [Javascript](https://www.javascript.com/)
 - [React](https://reactjs.org/)
-- [Antd](https://ant.design/)
+- [React Native](https://reactnative.dev/)
 
 <p align="right"><a href="#top"><img src="img/topArrow_readme.png" alt="Back to top" width="30" height="30"></a></p>
 
@@ -81,32 +74,22 @@ A local copy will be created that you can modify as you wish.
 ### Installation
 
 1. Clone the repo
+
    ```sh
    git clone https://github.com/riky97/My-Simple-News-App.git
    ```
-2. Install NPM packages
+
+2. Follow giude to install react native, copy and paste on browser
 
    ```sh
-   npm install
-   ```
-
-3. Start Localhost server
-
-   ```sh
-   npm run start or yarn start
+   https://reactnative.dev/docs/next/environment-setup
    ```
 
 <p align="right"><a href="#top"><img src="img/topArrow_readme.png" alt="Back to top" width="30" height="30"></a></p>
 
 ## Usage
 
-The project is based on the search for all anime.
-The home shows the top anime and the anime of the day.
-All genres are displayed on the page dedicated to genres. clicking on one of them will display a page with all the anime related to that genre.
-On the search page you can search for all the anime by entering their title in the search box
-<br/>
-To test the app:
-_[follow this link](https://my-anime-list.netlify.app)_
+The project is based on the search top news at the moment.
 
 <p align="right"><a href="#top"><img src="img/topArrow_readme.png" alt="Back to top" width="30" height="30"></a></p>
 
@@ -136,9 +119,3 @@ Riccardo - ringrasciotta97@gmail.com
 Project Link: [https://github.com/riky97/My-Simple-News-App](https://github.com/riky97/My-Simple-News-App)
 
 <p align="right"><a href="#top"><img src="img/topArrow_readme.png" alt="Back to top" width="30" height="30"></a></p>
-
-<!-- MARKDOWN LINKS & IMAGES -->
-
-[product-screenshot]: ./public/images/readme/home_screenshot.PNG
-[product-screenshot2]: ./public/images/readme/information_screenshot.PNG
-[product-screenshot3]: ./public/images/readme/search_screenshot.PNG
