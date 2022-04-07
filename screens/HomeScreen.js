@@ -12,6 +12,8 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
+//import {useRoute, useNavigationState} from '@react-navigation/native';
+
 //API
 import {getTodayPopularNews} from '../api/getTodayPopularNews';
 
@@ -23,11 +25,12 @@ const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 };
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [selectedId, setSelectedId] = useState('general');
   const [loading, setLoading] = useState(false);
   const [popularNews, setPopularNews] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
+  const [route, setRoute] = useState('');
 
   useEffect(() => {
     response(selectedId);
@@ -64,10 +67,19 @@ const HomeScreen = () => {
     response(ele);
   };
 
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', ele => {
+      console.log('first', ele);
+      setRoute(ele.target.split('-')[0]);
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
   const title = 'Popular ' + selectedId + ' news';
   return (
     <>
-      <Header onPress={changeSection} selectedId={selectedId} />
+      <Header onPress={changeSection} selectedId={selectedId} route={route} />
       <View style={styles.container}>
         {popularNews.length > 0 && (
           <FlatList

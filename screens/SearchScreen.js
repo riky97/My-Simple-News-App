@@ -14,15 +14,17 @@ import {getSearchNews} from '../api/getSearchNews';
 
 //COMPONENT
 import CardNews from '../components/CardNews';
+import Header from '../components/Header';
 
 const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 };
 
-const SearchScreen = () => {
+const SearchScreen = ({navigation}) => {
   const [search, setSearch] = useState('');
   const [searchNewsByName, setSearchNewsByName] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
+  const [route, setRoute] = useState('');
 
   const updateSearch = search => {
     setSearch(search);
@@ -57,67 +59,62 @@ const SearchScreen = () => {
       setRefreshing(false);
     });
   }, []);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', ele => {
+      console.log('first', ele);
+      setRoute(ele.target.split('-')[0]);
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
   return (
-    <View style={styles.container}>
-      <SearchBar
-        containerStyle={{
-          backgroundColor: '#fff',
-          borderTopWidth: 0,
-          borderBottomWidth: 2,
-          shadowColor: '#000',
-          shadowOffset: {width: 1, height: 1},
-          shadowOpacity: 0.4,
-          shadowRadius: 3,
-          elevation: 10,
-        }}
-        inputContainerStyle={{
-          backgroundColor: 'whitesmoke',
-          borderRadius: 20,
-        }}
-        lightTheme
-        placeholder="Search news..."
-        value={search}
-        onChangeText={ele => updateSearch(ele)}
-        searchIcon={
-          <TouchableOpacity
-            style={{backgroundColor: 'whitesmoke'}}
-            onPress={searchNews}>
-            <Icon name="search" style={{backgroundColor: 'whitesmoke'}} />
-          </TouchableOpacity>
-        }
+    <>
+      <Header
+        onPress={searchNews}
+        selectedId={search}
+        route={route}
+        updateSearch={updateSearch}
       />
-      {searchNewsByName.length > 0 ? (
-        <>
-          <FlatList
-            style={styles.list}
-            ListHeaderComponent={
-              <Text style={styles.searchText}>Search: {search}</Text>
-            }
-            ListFooterComponent={<Text></Text>}
-            data={searchNewsByName}
-            refreshControl={
-              <RefreshControl
-                refreshing={refreshing}
-                onRefresh={() => onRefresh(search)}
-              />
-            }
-            keyExtractor={(item, index) => index + item}
-            renderItem={(item, index) => {
-              return <CardNews data={item} />;
-            }}
-          />
-        </>
-      ) : (
-        <>
-          <View
-            style={{flex: 0.5, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style={{fontSize: 25, fontWeight: '600', color: '#000'}}>
-              No data available!
-            </Text>
-          </View>
-        </>
-      )}
-    </View>
+      <View style={styles.container}>
+        {searchNewsByName.length > 0 ? (
+          <>
+            <FlatList
+              style={styles.list}
+              ListHeaderComponent={
+                <Text style={styles.searchText}>Search: {search}</Text>
+              }
+              ListFooterComponent={<Text></Text>}
+              data={searchNewsByName}
+              refreshControl={
+                <RefreshControl
+                  refreshing={refreshing}
+                  onRefresh={() => onRefresh(search)}
+                />
+              }
+              keyExtractor={(item, index) => index + item}
+              renderItem={(item, index) => {
+                return <CardNews data={item} />;
+              }}
+            />
+          </>
+        ) : (
+          <>
+            <View
+              style={{
+                flex: 0.5,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text style={{fontSize: 25, fontWeight: '600', color: '#000'}}>
+                No data available!
+              </Text>
+            </View>
+          </>
+        )}
+      </View>
+    </>
   );
 };
 

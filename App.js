@@ -8,46 +8,23 @@
 
 import React, {useEffect, useState} from 'react';
 import type {Node} from 'react';
-import {
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  StatusBar,
-  ScrollView,
-  FlatList,
-  RefreshControl,
-  SafeAreaView,
-  ActivityIndicator,
-} from 'react-native';
+import {TurboModuleRegistry, useColorScheme} from 'react-native';
 
 import {Icon} from 'react-native-elements';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
-// //API
-// import {getTodayPopularNews} from './api/getTodayPopularNews';
-
-// //COMPONENT
-// import CardNews from './components/CardNews';
-// import Header from './components/Header';
 
 //SCREEN
 import HomeScreen from './screens/HomeScreen';
 import SearchScreen from './screens/SearchScreen';
 
-// const wait = timeout => {
-//   return new Promise(resolve => setTimeout(resolve, timeout));
-// };
-//const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const App: () => Node = () => {
+  const [routeNav, setRouteNav] = useState('');
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -80,10 +57,15 @@ const App: () => Node = () => {
               backgroundColor: '#fff',
               height: 60,
             },
+            tabBarLabel: route.name,
             tabBarLabelStyle: {
               fontSize: 15,
               fontFamily: 'Aeroport',
             },
+            title: '',
+            tabBarComponent: ({navigation}) => (
+              <BottomBar navigation={navigation} />
+            ),
           })}>
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Search" component={SearchScreen} />

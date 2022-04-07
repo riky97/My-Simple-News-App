@@ -1,8 +1,12 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {useEffect} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {Icon, SearchBar} from 'react-native-elements';
+//import {useRoute} from '@react-navigation/native';
+
+//JSON
 import CategoryTopHeadlines from './CategoryTopHeadlines';
 
-const Header = ({onPress, selectedId}) => {
+const Header = ({onPress, selectedId, route,updateSearch}) => {
   return (
     <View style={{overflow: 'hidden', paddingBottom: 5, flex: 0.25}}>
       <View style={styles.header}>
@@ -10,7 +14,33 @@ const Header = ({onPress, selectedId}) => {
           <Text style={styles.logo}>NEWS APP</Text>
         </View>
         <View style={{flex: 1.2, justifyContent: 'flex-end'}}>
-          <CategoryTopHeadlines onPress={onPress} selectedId={selectedId} />
+          {route === 'Home' && (
+            <CategoryTopHeadlines onPress={onPress} selectedId={selectedId} />
+          )}
+          {route === 'Search' && (
+            <SearchBar
+              containerStyle={{
+                backgroundColor: '#fff',
+                borderTopWidth: 0,
+                borderBottomWidth: 0,
+              }}
+              inputContainerStyle={{
+                backgroundColor: 'whitesmoke',
+                borderRadius: 20,
+              }}
+              lightTheme
+              placeholder="Search news..."
+              value={selectedId}
+              onChangeText={ele => updateSearch(ele)}
+              searchIcon={
+                <TouchableOpacity
+                  style={{backgroundColor: 'whitesmoke'}}
+                  onPress={onPress}>
+                  <Icon name="search" />
+                </TouchableOpacity>
+              }
+            />
+          )}
         </View>
       </View>
     </View>
@@ -37,3 +67,8 @@ const styles = StyleSheet.create({
 });
 
 export default Header;
+/*shadowColor: '#000',
+                shadowOffset: {width: 1, height: 1},
+                shadowOpacity: 0.4,
+                shadowRadius: 3,
+                elevation: 10, */
