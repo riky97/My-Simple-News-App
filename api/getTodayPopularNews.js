@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {API_KEY} from '@env';
 
 let dataSent = {
   error: false,
@@ -10,17 +11,9 @@ let dataSent = {
 export const getTodayPopularNews = selectedId => {
   const getData = async selectedId => {
     try {
-      // const options = {
-      //   method: 'GET',
-      //   url: 'https://newsapi.org/v2/everything?from=2022-03-28&to=2022-03-28&sortBy=popularity&apiKey=a989ea706a3f489ca7d8da67224428cf',
-      // };
-      console.log('selectedId', selectedId);
       const response = await axios.get(
-        'https://newsapi.org/v2/top-headlines?country=us&category=' +
-          selectedId +
-          '&apiKey=a989ea706a3f489ca7d8da67224428cf',
+        `https://newsapi.org/v2/top-headlines?country=us&category=${selectedId}&apiKey=${API_KEY}`,
       );
-
       const data = response.data;
       dataSent = {
         error: false,

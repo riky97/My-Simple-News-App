@@ -16,7 +16,7 @@ const SearchScreen = ({navigation}) => {
   const [search, setSearch] = useState('');
   const [searchNewsByName, setSearchNewsByName] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
-  const [route, setRoute] = useState('');
+  const [route, setRoute] = useState('Search');
 
   const updateSearch = search => {
     setSearch(search);
@@ -54,7 +54,7 @@ const SearchScreen = ({navigation}) => {
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', ele => {
-      console.log('first', ele);
+      // console.log('first', ele);
       setRoute(ele.target.split('-')[0]);
     });
 

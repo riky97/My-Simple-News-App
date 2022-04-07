@@ -8,7 +8,7 @@
 
 import React, {useEffect, useState} from 'react';
 import type {Node} from 'react';
-import {TurboModuleRegistry, useColorScheme} from 'react-native';
+import {useColorScheme} from 'react-native';
 
 import {Icon} from 'react-native-elements';
 

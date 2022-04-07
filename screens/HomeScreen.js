@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 
 import {StyleSheet, Text, View, FlatList, RefreshControl} from 'react-native';
 
@@ -14,18 +14,19 @@ const wait = timeout => {
 };
 
 const HomeScreen = ({navigation}) => {
+  const flatlistRef = useRef();
   const [selectedId, setSelectedId] = useState('general');
   const [loading, setLoading] = useState(false);
   const [popularNews, setPopularNews] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
-  const [route, setRoute] = useState('');
+  const [route, setRoute] = useState('Home');
 
   useEffect(() => {
     response(selectedId);
   }, []);
   const response = async selectedId => {
     const data = await getTodayPopularNews(selectedId);
-    console.log(data);
+    //console.log(data);
     if (!data.error) {
       setPopularNews(data.data);
     }
@@ -49,15 +50,20 @@ const HomeScreen = ({navigation}) => {
     });
   }, []);
 
+  //call when change category section
+  const scrollToIndex = () => {
+    let index = 0;
+    flatlistRef.current.scrollToIndex({animated: true, index: index});
+  };
   //selectedId
   const changeSection = ele => {
     setSelectedId(ele);
     response(ele);
+    scrollToIndex();
   };
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', ele => {
-      console.log('first', ele);
       setRoute(ele.target.split('-')[0]);
     });
 
@@ -85,6 +91,7 @@ const HomeScreen = ({navigation}) => {
             renderItem={(item, index) => {
               return <CardNews data={item} />;
             }}
+            ref={flatlistRef}
           />
         )}
       </View>

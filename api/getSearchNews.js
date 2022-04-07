@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {API_KEY} from '@env';
 
 let dataSent = {
   error: false,
@@ -10,13 +11,8 @@ let dataSent = {
 export const getSearchNews = search => {
   const getData = async search => {
     try {
-      // const options = {
-      //   method: 'GET',
-      //   url: 'https://newsapi.org/v2/everything?from=2022-03-28&to=2022-03-28&sortBy=popularity&apiKey=a989ea706a3f489ca7d8da67224428cf',
-      // };
-      console.log('selectedId', search);
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=${search}&sortBy=popularity&apiKey=a989ea706a3f489ca7d8da67224428cf`,
+        `https://newsapi.org/v2/everything?q=${search}&sortBy=popularity&apiKey=${API_KEY}`,
       );
 
       const data = response.data;
