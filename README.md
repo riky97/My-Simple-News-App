@@ -85,6 +85,12 @@ A local copy will be created that you can modify as you wish.
    https://reactnative.dev/docs/next/environment-setup
    ```
 
+3. Create file .env and push
+
+   ```sh
+   API_KEY= YOUR API KEY
+   ```
+
 <p align="right"><a href="#top"><img src="img/topArrow_readme.png" alt="Back to top" width="30" height="30"></a></p>
 
 ## Usage
