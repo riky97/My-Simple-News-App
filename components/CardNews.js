@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   Text,
   Linking,
-  Alert,
 } from 'react-native';
 
 const CardNews = ({data}) => {

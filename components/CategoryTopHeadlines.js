@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {FlatList, Text, TouchableOpacity, StyleSheet, View} from 'react-native';
 
 import getCategory from '../assets/category.json';
@@ -75,6 +75,3 @@ const styles = StyleSheet.create({
 });
 
 export default CategoryTopHeadlines;
-// backgroundColor: '#13a8a8',
-// backgroundColor: '#138585',
-// borderRadius: 10,

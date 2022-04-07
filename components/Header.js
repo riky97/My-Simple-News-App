@@ -1,12 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Icon, SearchBar} from 'react-native-elements';
-//import {useRoute} from '@react-navigation/native';
 
 //JSON
 import CategoryTopHeadlines from './CategoryTopHeadlines';
 
-const Header = ({onPress, selectedId, route,updateSearch}) => {
+const Header = ({onPress, selectedId, route, updateSearch}) => {
   return (
     <View style={{overflow: 'hidden', paddingBottom: 5, flex: 0.25}}>
       <View style={styles.header}>
@@ -67,8 +66,3 @@ const styles = StyleSheet.create({
 });
 
 export default Header;
-/*shadowColor: '#000',
-                shadowOffset: {width: 1, height: 1},
-                shadowOpacity: 0.4,
-                shadowRadius: 3,
-                elevation: 10, */

@@ -1,13 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  FlatList,
-  RefreshControl,
-} from 'react-native';
-import {Icon, SearchBar} from 'react-native-elements';
+import {View, Text, StyleSheet, FlatList, RefreshControl} from 'react-native';
 
 //API
 import {getSearchNews} from '../api/getSearchNews';

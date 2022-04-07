@@ -24,7 +24,6 @@ import SearchScreen from './screens/SearchScreen';
 const Tab = createBottomTabNavigator();
 
 const App: () => Node = () => {
-  const [routeNav, setRouteNav] = useState('');
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {

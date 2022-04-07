@@ -1,18 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import {
-  StyleSheet,
-  Text,
-  View,
-  StatusBar,
-  FlatList,
-  RefreshControl,
-  ActivityIndicator,
-} from 'react-native';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
-//import {useRoute, useNavigationState} from '@react-navigation/native';
+import {StyleSheet, Text, View, FlatList, RefreshControl} from 'react-native';
 
 //API
 import {getTodayPopularNews} from '../api/getTodayPopularNews';
