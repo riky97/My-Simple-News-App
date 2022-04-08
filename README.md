@@ -93,9 +93,9 @@ A local copy will be created that you can modify as you wish.
 
 4. Install dependency
 
-```sh
-npm install or yarn install
-```
+   ```sh
+   npm install or yarn install
+   ```
 
 <p align="right"><a href="#top"><img src="img/topArrow_readme.png" alt="Back to top" width="30" height="30"></a></p>
 
